@@ -8,12 +8,12 @@ npminstall:
 	npm install
 
 npmbuild: npminstall
-	npm build
+	npm run build
 
 build:	npmbuild build-version
 
 build-version:
-        docker build -t ${NAME}:${VERSION}  ./dist
+	docker build -t ${NAME}:${VERSION}  ./dist
 
 tag-latest:
 	docker tag ${NAME}:${VERSION} ${ALIYUN_REGISTRY_NAME}:${VERSION}
