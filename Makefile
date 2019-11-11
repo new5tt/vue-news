@@ -4,7 +4,13 @@ VERSION = 1.0.0
 
 .PHONY:	build start push
 
-build:	build-version
+npminstall:
+	npm install
+
+npmbuild: npminstall
+	npm build
+
+build:	npmbuild build-version
 
 build-version:
         docker build -t ${NAME}:${VERSION}  ./dist
